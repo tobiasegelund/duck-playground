@@ -17,7 +17,7 @@ interface UploadFilesProps {
 export default function UploadFiles({ files, setFiles, db }: UploadFilesProps) {
   const [file, setFile] = useState<File | null>(null)
 
-  const handleUpload = (_) => {
+  const handleUpload = () => {
     const uploadFile = async () => {
       try {
         if (!file) {

@@ -1,11 +1,14 @@
+import React from 'react';
 import { paginate } from '../utils';
 import Content from './Content'
 import Pagination from './Pagination'
 
+
 interface TableProps {
+  // eslint-disable-next-line
   data: any[];
   currentPage?: number;
-  setCurrentPage?: () => void;
+  setCurrentPage?: React.Dispatch<React.SetStateAction<number>>;
   pageSize?: number;
   showPagination?: boolean;
   showIndex?: boolean;

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Content.css';
 
+
+// eslint-disable-next-line
 type RowType = { [key: string]: any };
 
 interface ContentProps {

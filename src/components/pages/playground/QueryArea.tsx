@@ -13,7 +13,6 @@ export default function QueryArea({ setQueries }: QueryAreaProps) {
 
   function runOnClick() {
     if (query !== '') {
-      // const queryJSON = JSON.stringify(query);
       setQueries((prev) => [...prev, { query }]);
     }
 

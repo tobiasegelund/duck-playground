@@ -18,7 +18,7 @@ export default function Playground() {
   const [queries, setQueries] = useState<Query[]>([]);
 
   useEffect(() => {
-    document.title = 'DuckDB Playground';
+    document.title = 'Duck Playground';
 
     const initializeDB = async () => {
       try {
@@ -40,7 +40,7 @@ export default function Playground() {
     };
   }, []);
 
-  if (loading) {
+  if (loading || !duckDB) {
     return <LoadingScreen />
   }
 

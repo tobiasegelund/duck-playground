@@ -1,6 +1,5 @@
 .table-cell {
   max-width: 300px;
-  max-height: 25px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -8,7 +7,6 @@
 }
 
 .expanded-cell {
-  max-width: 300px;
   white-space: pre-wrap;
   background-color: #f0f0f0;
   position: relative;

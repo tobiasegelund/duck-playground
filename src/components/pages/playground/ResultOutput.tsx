@@ -46,7 +46,7 @@ export default function ResultOutput({ queries, db }: ResultOutputProps) {
 
   return (
     <div>
-      <div className='min-h-[470px]'>
+      <div>
         {errorMessage ? <div className="error-message">{errorMessage}</div> : <Table rows={dataPage} withIndex={true} startIndex={pageSize * (currentPage - 1)} />}
       </div>
       {!errorMessage && <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} pageSize={pageSize} numberOfRows={data.length} />}

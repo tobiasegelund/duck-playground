@@ -43,7 +43,7 @@ export default function QueryArea({ setQueries }: QueryAreaProps) {
   }, [query]);
 
   return (
-    <div className="relative w-[46rem] p-4">
+    <div className="relative p-4">
       <div className="relative w-full">
         <textarea
           ref={textareaRef}

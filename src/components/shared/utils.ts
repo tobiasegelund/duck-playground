@@ -48,3 +48,8 @@ export function formatBytes(bytes: number) {
   const size = parseFloat((bytes / Math.pow(k, i)).toFixed(2));
   return `${size} ${sizes[i]}`;
 }
+
+export function extractExtension(filename: string): string {
+  const parts = filename.split('.');
+  return parts[parts.length - 1];
+}

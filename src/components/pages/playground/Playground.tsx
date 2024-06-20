@@ -50,10 +50,10 @@ export default function Playground() {
           <SubmitButton text="Log out" />
         </div>
         <div className="flex h-full">
-          <div className="flex-1">
+          <div className="flex-1 h-full">
             <QueryArea setQueries={setQueries} />
           </div>
-          <div className="flex-1 overflow-x-auto">
+          <div className="flex-1 h-full overflow-x-auto">
             <TabsArea queries={queries} db={duckDB} />
           </div>
         </div>

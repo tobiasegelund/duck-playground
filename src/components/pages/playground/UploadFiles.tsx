@@ -4,7 +4,7 @@ import * as duckdb from '@duckdb/duckdb-wasm';
 import Table from '../../shared/Table';
 import SubmitButton from '../../shared/SubmitButton';
 import { FileInfo } from '../../shared/types';
-import { formatBytes } from '../../shared/utils';
+import { extractExtension, formatBytes } from '../../shared/utils';
 
 
 interface UploadFilesProps {
@@ -33,8 +33,10 @@ export default function UploadFiles({ files, setFiles, db }: UploadFilesProps) {
 
     if (file) {
       const size = formatBytes(file.size);
+      console.log(file.type)
+      const type = file.type === undefined ? extractExtension(file.name) : file.type;
 
-      setFiles((prev) => [...prev, { "filename": file.name, "type": file.type, "size": size }])
+      setFiles((prev) => [...prev, { "filename": file.name, "type": type, "size": size }])
       setFile(null);
     }
   };
@@ -51,7 +53,7 @@ export default function UploadFiles({ files, setFiles, db }: UploadFilesProps) {
         <input type="file" onChange={handleFileChange} className="file-input w-full max-w-xs m-4" />
         <SubmitButton text="Upload" onClick={handleUpload} />
       </form>
-      <div className='m-4 min-h-[250px]'>
+      <div className='m-4'>
         <Table rows={files} withIndex={true} />
       </div>
     </div>

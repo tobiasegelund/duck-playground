@@ -2,23 +2,16 @@ import React, { useState } from 'react';
 import './Content.css';
 
 
-// eslint-disable-next-line
 type RowType = { [key: string]: any };
 
 interface ContentProps {
   rows: RowType[];
+  reverse?: boolean;
   withIndex?: boolean;
   startIndex?: number;
 }
 
-/*
-  * Content component that renders a table
-  * @param {RowType[]} rows - Rows to be rendered in the table
-  * @param {boolean} withIndex - Whether to show the index of the row
-  * @param {number} startIndex - Index to start from
-  * @returns {ReactElement} - Returns a table
-*/
-const Content: React.FC<ContentProps> = ({ rows, withIndex = false, startIndex = 0 }) => {
+const Content: React.FC<ContentProps> = ({ rows, reverse = false, withIndex = false, startIndex = 0 }) => {
   if (rows.length === 0) return null;
 
   const columns = Object.keys(rows[0]);
@@ -36,7 +29,7 @@ const Content: React.FC<ContentProps> = ({ rows, withIndex = false, startIndex =
         </thead>
         <tbody>
           {rows.map((row, idx) => (
-            <Row key={idx} idx={idx + startIndex + 1} values={row} withIndex={withIndex} />
+            <Row key={idx} idx={reverse ? rows.length - idx + startIndex : idx + startIndex + 1} values={row} withIndex={withIndex} />
           ))}
         </tbody>
       </table>
@@ -50,13 +43,6 @@ interface RowProps {
   withIndex?: boolean;
 }
 
-/*
-  * Row component that renders a row in the table
-  * @param {number} idx - Index of the row
-  * @param {RowType} values - Values of the row
-  * @param {boolean} withIndex - Whether to show the index of the row
-  * @returns {ReactElement} - Returns a row in the table
-*/
 const Row: React.FC<RowProps> = ({ idx, values, withIndex = false }) => {
   const [expandedCell, setExpandedCell] = useState<string | null>(null);
 

@@ -2,13 +2,13 @@ export default function Help() {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
       <p className="mb-6">
-        Welcome to DuckDB Playground! It's designed to make it easy for you to work with SQL queries without needing to install any software on your local machine. You can upload your data files and interact with them using SQL in a user-friendly web interface.
+        Welcome to Duck Playground! It's designed to make it easy for you to work with SQL queries without needing to install any software on your local machine. You can upload your data files and interact with them using SQL in a user-friendly web interface.
       </p>
       <p className="mb-6">
         This help section will guide you through the process of uploading files and using the Query Editor to run SQL queries directly in your web browser.
       </p>
       <h2 className="text-2xl font-semibold mb-4">Uploading Files</h2>
-      <p className="mb-4">To get started with analyzing your data, you'll first need to upload your files to the DuckDB web interface. Follow these steps:</p>
+      <p className="mb-4">To get started with analyzing your data, you'll first need to upload your files to the Duck Playground interface. Follow these steps:</p>
       <ol className="list-decimal list-inside mb-6 space-y-2">
         <li>Click on the <strong>upload</strong> tab located at the top of the page.</li>
         <li>Select the file you want to upload from your computer. Only a single file can be uploaded at a time (for now). DuckDB supports a variety of file formats, including CSV, Parquet, and JSON.</li>
@@ -26,7 +26,7 @@ export default function Help() {
       <p className="mb-6">You can write and execute more complex SQL queries to analyze your data as needed. The Query Editor supports a wide range of SQL commands and functions available in DuckDB. You can read more about DuckDB's API <a href="https://duckdb.org/docs/sql/introduction" className="text-blue-500 underline" target='_blank'> here</a>.</p>
 
       {/* <h2 className="text-2xl font-semibold mb-4">Managing Your Data</h2>
-      <p className="mb-4">In addition to querying your data, you can also manage it within the DuckDB web interface:</p>
+      <p className="mb-4">In addition to querying your data, you can also manage it within the Duck Playground web interface:</p>
       <ul className="list-disc list-inside mb-6 space-y-2">
         <li><strong>View File Details:</strong> Click on a file in the file list to view its schema.</li>
         <li><strong>Remove Files:</strong> To remove a file, click the trash icon next to the file name in the file list.</li>
@@ -41,7 +41,7 @@ export default function Help() {
         <li><strong>Can I save my queries?</strong> Every executed query is automatically saved and can be accessed later in the <strong>history</strong> tab.</li>
       </ul>
 
-      <p>We hope you find the DuckDB web interface easy to use and powerful for your data analysis needs!</p>
+      <p>We hope you find the Duck Playground easy to use and powerful for your data analysis needs!</p>
     </div>
   );
 }

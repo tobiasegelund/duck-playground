@@ -56,7 +56,7 @@ export default function Playground() {
           <div className="flex-1 h-full">
             <QueryArea setQueries={setQueries} />
           </div>
-          <div className="flex-1 h-full overflow-x-auto">
+          <div className="flex-1 h-full max-h-max overflow-x-auto">
             <TabsArea queries={queries} db={duckDB} />
           </div>
         </div>
@@ -67,10 +67,10 @@ export default function Playground() {
 }
 
 const TabsArea = ({ queries, db }: { queries: Query[], db: duckdb.AsyncDuckDB }) => {
-  const [activeTab, setActiveTab] = useState("files");
+  const [activeTab, setActiveTab] = useState("help");
   const [files, setFiles] = useState<FileInfo[]>([]);
 
-  const tabs = ["result", "history", "files", "help"];
+  const tabs = ["results", "history", "upload", "help"];
 
   return (
     <div>
@@ -86,11 +86,11 @@ const TabsArea = ({ queries, db }: { queries: Query[], db: duckdb.AsyncDuckDB })
           </a>
         ))}
       </div>
-      <div className='m-4'>
-        {activeTab === 'result' && <ResultOutput queries={queries} db={db} />}
-        {activeTab === 'files' && <UploadFiles files={files} setFiles={setFiles} db={db} />}
+      <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+        {activeTab === 'results' && <ResultOutput queries={queries} db={db} />}
+        {activeTab === 'upload' && <UploadFiles files={files} setFiles={setFiles} db={db} />}
         {activeTab === 'history' && <History queries={queries} />}
-        {activeTab === 'help' && <Help queries={queries} />}
+        {activeTab === 'help' && <Help />}
       </div>
     </div>
   );

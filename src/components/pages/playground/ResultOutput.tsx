@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as duckdb from '@duckdb/duckdb-wasm';
 
 import Table from '../../shared/Table';
-import Pagination from '../../shared/Pagination';
-import { paginate } from '../../shared/utils';
 import { Query } from '../../shared/types';
 
 
@@ -42,14 +40,9 @@ export default function ResultOutput({ queries, db }: ResultOutputProps) {
     console.log(errorMessage)
   }, [queries]);
 
-  const dataPage = paginate(data, currentPage, pageSize);
-
   return (
     <div>
-      <div>
-        {errorMessage ? <div className="error-message">{errorMessage}</div> : <Table rows={dataPage} withIndex={true} startIndex={pageSize * (currentPage - 1)} />}
-      </div>
-      {!errorMessage && <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} pageSize={pageSize} numberOfRows={data.length} />}
+      {errorMessage ? <div className="error-message">{errorMessage}</div> : <Table data={data} currentPage={currentPage} setCurrentPage={setCurrentPage} pageSize={pageSize} />}
     </div>
   );
 }

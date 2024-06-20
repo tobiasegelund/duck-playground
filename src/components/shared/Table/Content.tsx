@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import './Table.css';
+import './Content.css';
 
 type RowType = { [key: string]: any };
 
-interface TableProps {
+interface ContentProps {
   rows: RowType[];
   withIndex?: boolean;
   startIndex?: number;
 }
 
 /*
-  * Table component that renders a table
+  * Content component that renders a table
   * @param {RowType[]} rows - Rows to be rendered in the table
   * @param {boolean} withIndex - Whether to show the index of the row
   * @param {number} startIndex - Index to start from
   * @returns {ReactElement} - Returns a table
 */
-const Table: React.FC<TableProps> = ({ rows, withIndex = false, startIndex = 0 }) => {
+const Content: React.FC<ContentProps> = ({ rows, withIndex = false, startIndex = 0 }) => {
   if (rows.length === 0) return null;
 
   const columns = Object.keys(rows[0]);
@@ -84,4 +84,4 @@ const Row: React.FC<RowProps> = ({ idx, values, withIndex = false }) => {
   );
 };
 
-export default Table;
+export default Content;

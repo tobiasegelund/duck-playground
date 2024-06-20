@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import * as duckdb from '@duckdb/duckdb-wasm';
 
-import Table from '../../shared/Table';
+import Content from '../../shared/Table/Content';
 import SubmitButton from '../../shared/SubmitButton';
 import { FileInfo } from '../../shared/types';
 import { extractExtension, formatBytes } from '../../shared/utils';
+import Table from '../../shared/Table';
 
 
 interface UploadFilesProps {
@@ -54,7 +55,7 @@ export default function UploadFiles({ files, setFiles, db }: UploadFilesProps) {
         <SubmitButton text="Upload" onClick={handleUpload} />
       </form>
       <div className='m-4'>
-        <Table rows={files} withIndex={true} />
+        <Table data={files} showPagination={false} />
       </div>
     </div>
   )

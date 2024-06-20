@@ -47,9 +47,9 @@ export default function UploadFiles({ files, setFiles, db }: UploadFilesProps) {
 
   return (
     <div>
-      <form onClick={handleUpload}>
+      <form>
         <input type="file" onChange={handleFileChange} className="file-input w-full max-w-xs m-4" />
-        <SubmitButton text="Upload" />
+        <SubmitButton text="Upload" onClick={handleUpload} />
       </form>
       <div className='m-4 min-h-[250px]'>
         <Table rows={files} withIndex={true} />

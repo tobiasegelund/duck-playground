@@ -1,4 +1,3 @@
-import './App.css'
 import Login from './components/pages/login/Login'
 import Playground from './components/pages/playground/Playground'
 

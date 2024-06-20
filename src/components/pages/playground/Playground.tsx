@@ -13,7 +13,7 @@ import { LoadingScreen } from '../../shared/LoadingScreen';
 
 export default function Playground() {
   const [duckDB, setDuckDB] = useState<duckdb.AsyncDuckDB>();
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true);
   const [queries, setQueries] = useState<Query[]>([]);
 
   useEffect(() => {
@@ -46,12 +46,16 @@ export default function Playground() {
   return (
     <>
       <div className='flex flex-col justify-between h-screen'>
-        <div className="flex justify-end items-center mt-4 px-4 p-2">
+        <div className="flex justify-end items-center mt-4 px-4 p-3">
           <SubmitButton text="Log out" />
         </div>
         <div className="flex h-full">
-          <QueryArea setQueries={setQueries} />
-          <TabsArea queries={queries} db={duckDB} />
+          <div className="flex-1">
+            <QueryArea setQueries={setQueries} />
+          </div>
+          <div className="flex-1">
+            <TabsArea queries={queries} db={duckDB} />
+          </div>
         </div>
         <Footer />
       </div>

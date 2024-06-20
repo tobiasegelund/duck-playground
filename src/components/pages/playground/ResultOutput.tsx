@@ -15,7 +15,6 @@ interface ResultOutputProps {
 export default function ResultOutput({ queries, db }: ResultOutputProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState([]);
-  const [showEmptyScreen, setShowEmptyScreen] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
   const pageSize = 1000;
 
@@ -31,7 +30,6 @@ export default function ResultOutput({ queries, db }: ResultOutputProps) {
         const result = await conn.query(query);
         const dataArray = await result.toArray().map((row) => row.toJSON());
         setData(dataArray);
-        setShowEmptyScreen(dataArray.length === 0);
         setErrorMessage('');
       } catch (error) {
         setErrorMessage(error.message);
@@ -40,6 +38,8 @@ export default function ResultOutput({ queries, db }: ResultOutputProps) {
       }
     };
     fetchData();
+
+    console.log(errorMessage)
   }, [queries]);
 
   const dataPage = paginate(data, currentPage, pageSize);
@@ -47,15 +47,9 @@ export default function ResultOutput({ queries, db }: ResultOutputProps) {
   return (
     <div>
       <div className='min-h-[470px]'>
-        {showEmptyScreen ? (
-          errorMessage ? (
-            <div className="error-message">{errorMessage}</div>
-          ) : <table></table>
-        ) : (
-          <Table rows={dataPage} withIndex={true} startIndex={pageSize * (currentPage - 1)} />
-        )}
+        {errorMessage ? <div className="error-message">{errorMessage}</div> : <Table rows={dataPage} withIndex={true} startIndex={pageSize * (currentPage - 1)} />}
       </div>
-      {!showEmptyScreen && <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} pageSize={pageSize} numberOfRows={data.length} />}
+      {!errorMessage && <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} pageSize={pageSize} numberOfRows={data.length} />}
     </div>
   );
 }

@@ -36,8 +36,6 @@ export default function ResultOutput({ queries, db }: ResultOutputProps) {
       }
     };
     fetchData();
-
-    console.log(errorMessage)
   }, [queries]);
 
   return (

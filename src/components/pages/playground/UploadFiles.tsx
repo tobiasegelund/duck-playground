@@ -34,8 +34,7 @@ export default function UploadFiles({ files, setFiles, db }: UploadFilesProps) {
 
     if (file) {
       const size = formatBytes(file.size);
-      console.log(file.type)
-      const type = file.type === undefined ? extractExtension(file.name) : file.type;
+      const type = file.type === '' ? extractExtension(file.name) : file.type;
 
       setFiles((prev) => [...prev, { "filename": file.name, "type": type, "size": size }])
       setFile(null);

@@ -6,10 +6,11 @@ import QueryArea from './QueryArea';
 import Footer from '../../shared/Footer';
 import UploadFiles from './UploadFiles';
 import History from './History';
-import SubmitButton from '../../shared/SubmitButton';
+import Help from './Help';
 import { initializeDuckDBInstance } from '../../shared/utils';
 import { Query, FileInfo } from '../../shared/types';
 import { LoadingScreen } from '../../shared/LoadingScreen';
+import githubLogo from '../../../assets/github-mark.svg'
 
 export default function Playground() {
   const [duckDB, setDuckDB] = useState<duckdb.AsyncDuckDB>();
@@ -47,7 +48,9 @@ export default function Playground() {
     <>
       <div className='flex flex-col justify-between h-screen'>
         <div className="flex justify-end items-center mt-4 px-4 p-3">
-          <SubmitButton text="Log out" />
+          <a href="https://github.com/tobiasegelund/duck-playground">
+            <img src={githubLogo} alt="Github Logo" className="h-8 w-8" />
+          </a>
         </div>
         <div className="flex h-full">
           <div className="flex-1 h-full">
@@ -67,7 +70,7 @@ const TabsArea = ({ queries, db }: { queries: Query[], db: duckdb.AsyncDuckDB })
   const [activeTab, setActiveTab] = useState("files");
   const [files, setFiles] = useState<FileInfo[]>([]);
 
-  const tabs = ["result", "history", "files"];
+  const tabs = ["result", "history", "files", "help"];
 
   return (
     <div>
@@ -87,6 +90,7 @@ const TabsArea = ({ queries, db }: { queries: Query[], db: duckdb.AsyncDuckDB })
         {activeTab === 'result' && <ResultOutput queries={queries} db={db} />}
         {activeTab === 'files' && <UploadFiles files={files} setFiles={setFiles} db={db} />}
         {activeTab === 'history' && <History queries={queries} />}
+        {activeTab === 'help' && <Help queries={queries} />}
       </div>
     </div>
   );

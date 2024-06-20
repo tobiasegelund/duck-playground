@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import * as duckdb from '@duckdb/duckdb-wasm';
 
-import Content from '../../shared/Table/Content';
 import SubmitButton from '../../shared/SubmitButton';
 import { FileInfo } from '../../shared/types';
 import { extractExtension, formatBytes } from '../../shared/utils';

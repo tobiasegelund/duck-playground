@@ -48,7 +48,7 @@ export default function Playground() {
     <>
       <div className='flex flex-col justify-between h-screen'>
         <div className="flex justify-end items-center mt-4 px-4 p-3">
-          <a href="https://github.com/tobiasegelund/duck-playground">
+          <a href="https://github.com/tobiasegelund/duck-playground" target="_blank">
             <img src={githubLogo} alt="Github Logo" className="h-8 w-8" />
           </a>
         </div>

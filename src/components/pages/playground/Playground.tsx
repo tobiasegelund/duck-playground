@@ -53,7 +53,7 @@ export default function Playground() {
           <div className="flex-1">
             <QueryArea setQueries={setQueries} />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 overflow-x-auto">
             <TabsArea queries={queries} db={duckDB} />
           </div>
         </div>

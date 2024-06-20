@@ -2,9 +2,11 @@ export default function Help() {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
       <p className="mb-6">
-        Welcome to DuckDB playground! This help section will guide you through the process of uploading files and using the Query Editor to run SQL queries directly in your web browser.
+        Welcome to DuckDB Playground! It's designed to make it easy for you to work with SQL queries without needing to install any software on your local machine. You can upload your data files and interact with them using SQL in a user-friendly web interface.
       </p>
-
+      <p className="mb-6">
+        This help section will guide you through the process of uploading files and using the Query Editor to run SQL queries directly in your web browser.
+      </p>
       <h2 className="text-2xl font-semibold mb-4">Uploading Files</h2>
       <p className="mb-4">To get started with analyzing your data, you'll first need to upload your files to the DuckDB web interface. Follow these steps:</p>
       <ol className="list-decimal list-inside mb-6 space-y-2">

@@ -18,7 +18,7 @@ export default function Playground() {
   const [queries, setQueries] = useState<Query[]>([]);
 
   useEffect(() => {
-    document.title = 'Playground';
+    document.title = 'DuckDB Playground';
 
     const initializeDB = async () => {
       try {

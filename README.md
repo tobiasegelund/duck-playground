@@ -4,7 +4,7 @@ Welcome to the Duck Playground! This repository is a web-based client side envir
 The Duck Playground is designed to make it easy for you to work with SQL queries without needing to install any software on your local machine. You can upload your data files and interact with them using SQL in a user-friendly web interface.
 
 
-You can find the website running on https://www.griddic.com.
+You can find the website running on https://griddic.com.
 
 ## Development
 

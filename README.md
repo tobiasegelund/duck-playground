@@ -1,5 +1,5 @@
 # Duck Playground
-Welcome to the Duck Playground! This repository is a web-based environment that allows you to upload files and run SQL queries directly in your web browser. Below is a comprehensive guide to help you get started with uploading files and using the Query Editor.
+Welcome to the Duck Playground! This repository is a web-based client side environment that allows you to upload files and run SQL queries directly in your web browser. Below is a comprehensive guide to help you get started with uploading files and using the Query Editor.
 
 The Duck Playground is designed to make it easy for you to work with SQL queries without needing to install any software on your local machine. You can upload your data files and interact with them using SQL in a user-friendly web interface.
 

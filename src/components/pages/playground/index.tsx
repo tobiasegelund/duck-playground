@@ -70,6 +70,12 @@ const TabsArea = ({ queries, db }: { queries: Query[], db: duckdb.AsyncDuckDB })
   const [activeTab, setActiveTab] = useState("help");
   const [files, setFiles] = useState<FileInfo[]>([]);
 
+  useEffect(() => {
+    if (queries.length > 0) {
+      setActiveTab("results");
+    }
+  }, [queries]);
+
   const tabs = ["results", "history", "upload", "help"];
 
   return (

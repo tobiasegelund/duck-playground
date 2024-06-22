@@ -11,6 +11,7 @@ interface ResultOutputProps {
 }
 
 export default function ResultOutput({ queries, db }: ResultOutputProps) {
+  const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
@@ -21,6 +22,7 @@ export default function ResultOutput({ queries, db }: ResultOutputProps) {
       if (queries.length === 0) {
         return;
       }
+      setLoading(true);
       const query = queries.slice(-1)[0]["query"];
       const conn = await db.connect();
 
@@ -32,11 +34,16 @@ export default function ResultOutput({ queries, db }: ResultOutputProps) {
       } catch (error) {
         setErrorMessage(error.message);
       } finally {
+        setLoading(false);
         conn.close();
       }
     };
     fetchData();
   }, [queries]);
+
+  if (loading) {
+    return <span className="loading loading-bars loading-sm"></span>;
+  }
 
   return (
     <div>
